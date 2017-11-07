@@ -25,7 +25,7 @@ class AppConfig
         'log_fetch_errors' => false,
         'log_level' => 'warning',
         'url_parameter_name' => 'u',
-        'default_parameter_name' => 'default',
+        'default_parameter_name' => 'd',
         'middleware' => ['resize'],
     ];
 

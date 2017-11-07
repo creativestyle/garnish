@@ -74,9 +74,9 @@ of linking directly to the endpoint you need to add the hash while still keeping
 
 ```
 # Before
-http://garnish.host/u=http://catserver.com/catpicture.jpg
+http://garnish.host/?u=http://catserver.com/catpicture.jpg
 # After 
-http://garnish.host/a9edab2987635559bcf015bea8d4ad7b/u=http://catserver.com/catpicture.jpg
+http://garnish.host/a9edab2987635559bcf015bea8d4ad7b/?u=http://catserver.com/catpicture.jpg
 ```
 
 ## Installation
@@ -103,7 +103,7 @@ Create `config.json` file in the main directory. The default settings are:
     "log_fetch_errors": false,
     "log_level": "warning",
     "url_parameter_name": "u",
-    "default_parameter_name": "default",
+    "default_parameter_name": "d",
     "middleware": [
         "resize"
     ]
