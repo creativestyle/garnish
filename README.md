@@ -16,6 +16,8 @@ It's also possible to easily add your own middleware for any transformation.
 Once the image is cached on disk, subsequent requests serve it directly using symfony's excellent
 `BinaryFileResponse` which internally uses `stream_copy_to_stream` and should be quite performant.
 
+Remember then putting a CDN in front of the server should nullify most of the performance concerns.
+
 ### X-Send-File
 
 For even more performance please consider installing XSendFile apache module and enable it in garnish config (`enable_x_sendfile` option.
@@ -139,6 +141,10 @@ When enabled, additional query parameters are available:
 - default (no value) - the output picture will be exactly WxH without preserving aspect ratio
 
 If only one W or H is given then the picture is resized to fit preserving the aspect ratio. With the mode ignored.
+
+### Recommended image transformation library
+
+`gmagick` php module is highly recommended for the `resize` middleware.
 
 ## TODO
 
