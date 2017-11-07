@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+use Creativestyle\Garnish\App;
+
+require __DIR__.'/../vendor/autoload.php';
+
+$app = new App(true);
+$consoleApp = new Application('Garnish', GARNISH_VERSION);
+
+foreach ($app->getServiceContainer()->getAllOfType('command') as $command) {
+    $consoleApp->add($command);
+}
+
+$consoleApp->run();

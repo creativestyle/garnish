@@ -1,0 +1,29 @@
+<IfModule xsendfile_module>
+    # Also add XSendFilePath {cachedirpath} to your vhost config
+    XSendFile on
+    RequestHeader Set X-Sendfile-Type X-Sendfile
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 day"
+    ExpiresByType image/gif "access plus 1 day"
+    ExpiresByType image/png "access plus 1 day"
+    Header Merge Cache-Control public
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # if url contains hash
+    RewriteCond %{REQUEST_URI} ^/(([a-z0-9])([a-z0-9])([a-z0-9])[a-z0-9]+)
+    # then search for file /images/{hash[0]}/{hash[1]}/{hash[2]}/{hash}
+    RewriteCond %{DOCUMENT_ROOT}/images/%2/%3/%4/%1 -f
+    # if exists then serve it
+    RewriteRule  ^ /images/%2/%3/%4/%1 [QSD,L]
+
+    # if requested file does not exist
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # redirect to front controller
+    RewriteRule .? app_dev.php [L]
+</IfModule>

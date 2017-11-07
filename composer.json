@@ -1,0 +1,28 @@
+{
+    "name": "creativestyle/garnish",
+    "description": "Image proxy server",
+    "keywords": ["image", "proxy", "server"],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Filip Sobalski",
+            "email": "filip.sobalski@creativestyle.pl",
+            "homepage": "http://creativestyle.pl/"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "php": ">=5.6",
+        "symfony/http-foundation": "~3.0.4",
+        "doctrine/cache": "~1.6.0",
+        "pimple/pimple": "^3.0",
+        "imagine/imagine": "~0.5.0",
+        "symfony/debug": "^3.0",
+        "psr/log": "^1.0",
+        "symfony/finder": "^3.0",
+        "symfony/console": "^3.0"
+    },
+    "autoload": {
+        "psr-4": { "Creativestyle\\": "src/" }
+    }
+}
